@@ -1,0 +1,11 @@
+
+CREATE TABLE `USERS` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) NOT NULL COMMENT '姓名',
+  `sex` char(1) DEFAULT NULL COMMENT '性别',
+  `age` int(4) DEFAULT 0,
+  `date` datetime NOT NULL COMMENT '日期',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER  ON testdb.* TO testdb@localhost IDENTIFIED BY 'root';
