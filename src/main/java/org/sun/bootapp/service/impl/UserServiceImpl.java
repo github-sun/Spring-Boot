@@ -1,13 +1,12 @@
-package cn.com.rising.bootapp.service.impl;
+package org.sun.bootapp.service.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import cn.com.rising.bootapp.dao.UserDAO;
-import cn.com.rising.bootapp.entity.User;
-import cn.com.rising.bootapp.service.UserService;
+import org.sun.bootapp.dao.UserDAO;
+import org.sun.bootapp.entity.User;
+import org.sun.bootapp.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService{

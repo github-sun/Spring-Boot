@@ -1,4 +1,4 @@
-package cn.com.rising.bootapp.config;
+package org.sun.bootapp.config;
 
 import java.nio.charset.Charset;
 import java.util.List;

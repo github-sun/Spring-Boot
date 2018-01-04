@@ -1,4 +1,4 @@
-package cn.com.rising.bootapp.config;
+package org.sun.bootapp.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

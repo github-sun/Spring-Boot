@@ -1,4 +1,4 @@
-package cn.com.rising.bootapp.dao;
+package org.sun.bootapp.dao;
 
 import java.util.List;
 
@@ -8,8 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
-
-import cn.com.rising.bootapp.entity.User;
+import org.sun.bootapp.entity.User;
 
 @Mapper
 public interface UserDAO {

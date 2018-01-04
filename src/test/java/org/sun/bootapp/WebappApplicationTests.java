@@ -1,4 +1,4 @@
-package cn.com.rising.webapp;
+package org.sun.bootapp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

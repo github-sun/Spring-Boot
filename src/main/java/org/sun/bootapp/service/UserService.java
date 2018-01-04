@@ -1,8 +1,8 @@
-package cn.com.rising.bootapp.service;
+package org.sun.bootapp.service;
 
 import java.util.List;
 
-import cn.com.rising.bootapp.entity.User;
+import org.sun.bootapp.entity.User;
 
 public interface UserService {
 

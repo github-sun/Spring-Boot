@@ -1,4 +1,4 @@
-package cn.com.rising.bootapp;
+package org.sun.bootapp;
 
 import java.util.Arrays;
 
@@ -6,8 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
-
-import cn.com.rising.bootapp.config.UserConfigBean;
+import org.sun.bootapp.config.UserConfigBean;
 
 @SpringBootApplication
 @EnableConfigurationProperties({UserConfigBean.class})

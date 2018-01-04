@@ -1,4 +1,4 @@
-package cn.com.rising.bootapp.entity;
+package org.sun.bootapp.entity;
 
 import java.io.Serializable;
 import java.util.Date;
