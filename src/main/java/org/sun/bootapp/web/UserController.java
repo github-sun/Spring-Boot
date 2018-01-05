@@ -42,11 +42,12 @@ public class UserController {
 	}
 	
 	@PostMapping("/user/add")
-	public void addUser(@RequestBody User user) {
+	public int addUser(@RequestBody User user) {
 		//System.out.println("===addUsers　"+user.toString());
-		logger.debug("===addUsers　"+user.toString());
 		user.setDate(new Date());
 		userService.addUser(user);
+		logger.debug("===addUsers　"+user.toString());
+		return user.getId();
 	}
 	
 	@PostMapping("/user/delete")
