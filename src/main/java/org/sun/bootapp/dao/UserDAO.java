@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -20,6 +21,7 @@ public interface UserDAO {
 	List<User> queryUsers();
 	
 	@Insert("INSERT INTO USERS(id,name,sex,age,date) VALUES(#{id}, #{name},#{sex}, #{age},#{date})")
+	@Options(useGeneratedKeys = true, keyProperty = "id", keyColumn="id")
 	int insertUser(User user);
 	
 	@Delete("DELETE FROM USERS WHERE id =#{id}")
