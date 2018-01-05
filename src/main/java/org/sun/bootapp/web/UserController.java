@@ -50,10 +50,10 @@ public class UserController {
 	}
 	
 	@PostMapping("/user/delete")
-	public void deleteUser(@RequestParam(value = "id", required = true) Integer id) {
+	public void removeUser(@RequestParam(value = "id", required = true) Integer id) {
 		//System.out.println("===deleteUsers　"+id);
-		logger.debug("===deleteUsers　"+id);
-		userService.deleteUserById(id);
+		logger.debug("===removeUser　"+id);
+		userService.removeUserById(id);
 	}
 	
 	@PostMapping("/user/update")

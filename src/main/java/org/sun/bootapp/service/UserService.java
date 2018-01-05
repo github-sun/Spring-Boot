@@ -12,7 +12,7 @@ public interface UserService {
 	
 	int addUser(User user);
 	
-	int deleteUserById(int id);
+	int removeUserById(int id);
 	
 	int updateUser(User user);
 }
