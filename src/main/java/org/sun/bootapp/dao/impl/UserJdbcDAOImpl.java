@@ -1,4 +1,4 @@
-package org.sun.bootapp.dao;
+package org.sun.bootapp.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
+import org.sun.bootapp.dao.UserJdbcDAO;
 import org.sun.bootapp.entity.User;
 
 @Component
