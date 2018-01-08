@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.sun.bootapp.annotation.Log;
 import org.sun.bootapp.dao.UserDAO;
+import org.sun.bootapp.dao.UserJdbcDAO;
 import org.sun.bootapp.entity.User;
 import org.sun.bootapp.service.UserService;
 
@@ -18,6 +19,9 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private UserJdbcDAO userJdbcDAO;
 
 	@Override
 	public User getUserById(int id) {
@@ -29,7 +33,8 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public List<User> getUsers() {
 		logger.info("===UserServiceImpl getUsers ");
-		return userDAO.queryUsers();
+		//return userDAO.queryUsers();
+		return userJdbcDAO.getUsers();
 	}
 
 	@Override
