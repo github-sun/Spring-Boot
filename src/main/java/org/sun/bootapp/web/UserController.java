@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.sun.bootapp.annotation.Log;
 import org.sun.bootapp.config.UserConfigBean;
 import org.sun.bootapp.entity.User;
 import org.sun.bootapp.service.UserService;
@@ -27,6 +28,7 @@ public class UserController {
 	@Autowired
 	private UserConfigBean userConfigBean;
 	
+	@Log
 	@GetMapping("/user/get/{id}")
 	public User getUserById(@PathVariable("id") Integer id) {
 		//System.out.println("===getUserById id "+id);

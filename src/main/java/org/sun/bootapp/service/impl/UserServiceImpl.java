@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.sun.bootapp.annotation.Log;
 import org.sun.bootapp.dao.UserDAO;
 import org.sun.bootapp.entity.User;
 import org.sun.bootapp.service.UserService;
@@ -24,10 +25,10 @@ public class UserServiceImpl implements UserService{
 		logger.debug("===getUsers "+user);
 		return user;
 	}
-
+	
 	@Override
 	public List<User> getUsers() {
-		
+		logger.info("===UserServiceImpl getUsers ");
 		return userDAO.queryUsers();
 	}
 
