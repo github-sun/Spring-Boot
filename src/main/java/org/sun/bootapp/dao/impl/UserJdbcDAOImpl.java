@@ -17,6 +17,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import org.sun.bootapp.dao.UserJdbcDAO;
 import org.sun.bootapp.entity.User;
 
@@ -35,6 +36,7 @@ public class UserJdbcDAOImpl implements UserJdbcDAO {
 		return jdbcTemplate.query(sql, new UserRowMapper());
 	}
 
+	@Transactional
 	@Override
 	public int insertUser(User user) {
 		final String sql = "INSERT INTO USERS(name,sex,age,date) VALUES(?,?,?,?)";
