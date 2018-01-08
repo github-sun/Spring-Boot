@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService{
 	public List<User> getUsers() {
 		logger.info("===UserServiceImpl getUsers ");
 		//return userDAO.queryUsers();
-		return userJdbcDAO.getUsers();
+		return userJdbcDAO.queryUsers();
 	}
 
 	@Override

@@ -6,5 +6,7 @@ import org.sun.bootapp.entity.User;
 
 public interface UserJdbcDAO {
 
-	List<User> getUsers();
+	List<User> queryUsers();
+	
+	int insertUser(User user);
 }
