@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.sun.bootapp.annotation.Log;
 import org.sun.bootapp.config.UserConfigBean;
@@ -33,21 +32,18 @@ public class UserController {
 	@Log
 	@GetMapping("/user/{id}")
 	public User getUserById(@PathVariable("id") Integer id) {
-		//System.out.println("===getUserById id "+id);
 		logger.debug("===getUserById id "+id);
 		return userService.getUserById(id);
 	}
 	
 	@GetMapping("/user")
 	public List<User> getUsers() {
-		//System.out.println("===getUsers");
 		logger.debug("===getUsers");
 		return userService.getUsers();
 	}
 	
 	@PostMapping("/user")
 	public int addUser(@RequestBody User user) {
-		//System.out.println("===addUsers　"+user.toString());
 		user.setDate(new Date());
 		userService.addUser(user);
 		logger.debug("===addUsers　"+user.toString());
@@ -56,14 +52,12 @@ public class UserController {
 	
 	@DeleteMapping("/user/{id}")
 	public void removeUser(@PathVariable("id") Integer id) {
-		//System.out.println("===deleteUsers　"+id);
 		logger.debug("===removeUser　"+id);
 		userService.removeUserById(id);
 	}
 	
 	@PutMapping("/user")
 	public void updateUser(@RequestBody User user) {
-		//System.out.println("===updateUsers　"+user.toString());
 		logger.debug("===updateUsers　"+user.toString());
 		user.setDate(new Date());
 		userService.updateUser(user);
