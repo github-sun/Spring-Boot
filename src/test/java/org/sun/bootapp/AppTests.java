@@ -1,7 +1,9 @@
 package org.sun.bootapp;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.HashMap;
@@ -48,13 +50,13 @@ public class AppTests {
 		map.put("sex", "1");
 		map.put("age", "40");
 		
-		MvcResult result = mockMvc.perform(post("/user/add").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
+		MvcResult result = mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
 				.andExpect(status().isOk())   
                 .andReturn();
 		String id = result.getResponse().getContentAsString();
 		System.out.println("===getUserByIdTest "+id); 
 		
-		result = mockMvc.perform(get("/user/get/"+id))
+		result = mockMvc.perform(get("/user/"+id))
 				.andExpect(status().isOk())   
                 .andReturn();
 		System.out.println("===getUserByIdTest "+result.getResponse().getContentAsString()); 
@@ -67,13 +69,13 @@ public class AppTests {
 		map.put("sex", "1");
 		map.put("age", "40");
 		
-		MvcResult result = mockMvc.perform(post("/user/add").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
+		MvcResult result = mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
 				.andExpect(status().isOk())   
                 .andReturn();
 		String id = result.getResponse().getContentAsString();
 		System.out.println("===getUsers "+id); 
 		
-		result = mockMvc.perform(get("/user/get/"))
+		result = mockMvc.perform(get("/user"))
 				.andExpect(status().isOk())   
                 .andReturn();
 		System.out.println("===getUsers "+result.getResponse().getContentAsString()); 
@@ -86,7 +88,7 @@ public class AppTests {
 		map.put("sex", "1");
 		map.put("age", "40");
 		
-		mockMvc.perform(post("/user/add").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
+		mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
 				.andExpect(status().isOk())   
                 .andReturn();
 	}
@@ -98,7 +100,7 @@ public class AppTests {
 		map.put("sex", "1");
 		map.put("age", "40");
 		
-		MvcResult result = mockMvc.perform(post("/user/add").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
+		MvcResult result = mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
 				.andExpect(status().isOk())   
                 .andReturn();
 		
@@ -106,7 +108,7 @@ public class AppTests {
 		
 		System.out.println("===removeUser "+id);
 		
-		result = mockMvc.perform(post("/user/delete/").param("id", id))
+		result = mockMvc.perform(delete("/user/"+id))
 				.andExpect(status().isOk())   
                 .andReturn();
 		System.out.println("===removeUser "+result.getResponse().getContentAsString()); 
@@ -119,7 +121,7 @@ public class AppTests {
 		map.put("sex", "1");
 		map.put("age", "40");
 		
-		MvcResult result = mockMvc.perform(post("/user/add").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
+		MvcResult result = mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
 				.andExpect(status().isOk())   
                 .andReturn();
 		
@@ -132,7 +134,7 @@ public class AppTests {
 		map.put("sex", "0");
 		map.put("age", "41");
 		
-		result = mockMvc.perform(post("/user/update").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
+		result = mockMvc.perform(put("/user").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
 				.andExpect(status().isOk())   
                 .andReturn();
 		System.out.println("===updateUser "+result.getResponse().getContentAsString()); 
