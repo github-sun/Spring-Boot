@@ -3,6 +3,7 @@ package org.sun.bootapp.ws;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.cxf.jaxrs.client.WebClient;
@@ -29,7 +30,7 @@ public class UserWebServicesTest {
 		providerList.add(new JacksonJsonProvider());
 
 		List<Object> productList = WebClient.create(baseAddress, providerList).path("/user")
-				.accept(MediaType.APPLICATION_JSON).get(List.class);
+				.accept(MediaType.APPLICATION_JSON).get(new GenericType<List<Object>>(){});
 
 		for (Object product : productList) {
 			System.out.println(product);
