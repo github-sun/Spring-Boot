@@ -1,4 +1,4 @@
-package org.sun.bootapp.config;
+package org.sun.bootapp.config.db;
 
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;

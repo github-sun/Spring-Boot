@@ -1,4 +1,4 @@
-package org.sun.bootapp.config;
+package org.sun.bootapp.config.db;
 
 import java.sql.SQLException;
 
