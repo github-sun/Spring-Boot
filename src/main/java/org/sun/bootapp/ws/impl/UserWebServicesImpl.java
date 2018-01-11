@@ -24,4 +24,11 @@ public class UserWebServicesImpl implements UserWebServices{
 		return userService.getUsers();
 	}
 
+	@Override
+	public int addUser(User user) {
+		logger.debug("===addUser　"+user.toString());
+		userService.addUser(user);
+		return user.getId();
+	}
+
 }

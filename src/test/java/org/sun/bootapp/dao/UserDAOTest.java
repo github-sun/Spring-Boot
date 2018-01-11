@@ -27,7 +27,7 @@ public class UserDAOTest {
 		user.setAge(20);
 		user.setDate(new Date());
 		userDAO.insertUser(user);
-		Assert.assertNotEquals(null, userDAO.queryUserById(user.getId()));
+		Assert.assertNotNull(userDAO.queryUserById(user.getId()));
 	}
 
 	@Test
@@ -38,7 +38,7 @@ public class UserDAOTest {
 		user.setAge(20);
 		user.setDate(new Date());
 		userDAO.insertUser(user);
-		Assert.assertNotEquals(null, userDAO.queryUsers());
+		Assert.assertNotNull(userDAO.queryUsers());
 	}
 
 	@Test

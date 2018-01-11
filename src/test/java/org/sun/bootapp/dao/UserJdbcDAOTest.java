@@ -28,6 +28,6 @@ public class UserJdbcDAOTest {
 		user.setAge(20);
 		user.setDate(new Date());
 		userJdbcDAO.insertUser(user);
-		Assert.assertNotEquals(null, userJdbcDAO.queryUsers());
+		Assert.assertNotNull(userJdbcDAO.queryUsers());
 	}
 }

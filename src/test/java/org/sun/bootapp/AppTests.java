@@ -1,5 +1,6 @@
 package org.sun.bootapp;
 
+import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -9,6 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -53,13 +55,17 @@ public class AppTests {
 		MvcResult result = mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
 				.andExpect(status().isOk())   
                 .andReturn();
-		String id = result.getResponse().getContentAsString();
+		String idString = result.getResponse().getContentAsString();
+		int id = Integer.valueOf(idString);
 		System.out.println("===getUserByIdTest "+id); 
+		Assert.assertEquals(true, id > 0);
 		
 		result = mockMvc.perform(get("/user/"+id))
 				.andExpect(status().isOk())   
                 .andReturn();
-		System.out.println("===getUserByIdTest "+result.getResponse().getContentAsString()); 
+		String resultString = result.getResponse().getContentAsString();
+		System.out.println("===getUserByIdTest "+resultString);
+		Assert.assertEquals(true, resultString.length() > 0);
 	}
 	
 	@Test
@@ -72,13 +78,17 @@ public class AppTests {
 		MvcResult result = mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
 				.andExpect(status().isOk())   
                 .andReturn();
-		String id = result.getResponse().getContentAsString();
+		String idString = result.getResponse().getContentAsString();
+		int id = Integer.valueOf(idString);
 		System.out.println("===getUsers "+id); 
+		Assert.assertEquals(true, id > 0);
 		
 		result = mockMvc.perform(get("/user"))
 				.andExpect(status().isOk())   
                 .andReturn();
-		System.out.println("===getUsers "+result.getResponse().getContentAsString()); 
+		String resultString = result.getResponse().getContentAsString();
+		System.out.println("===getUsers "+resultString); 
+		Assert.assertEquals(true, resultString.length() > 0);
 	}
 	
 	@Test
@@ -88,9 +98,13 @@ public class AppTests {
 		map.put("sex", "1");
 		map.put("age", "40");
 		
-		mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
+		MvcResult result = mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
 				.andExpect(status().isOk())   
                 .andReturn();
+		String idString = result.getResponse().getContentAsString();
+		int id = Integer.valueOf(idString);
+		System.out.println("===addUser "+id); 
+		Assert.assertEquals(true, id > 0);
 	}
 	
 	@Test
@@ -104,14 +118,17 @@ public class AppTests {
 				.andExpect(status().isOk())   
                 .andReturn();
 		
-		String id = result.getResponse().getContentAsString();
-		
-		System.out.println("===removeUser "+id);
+		String idString = result.getResponse().getContentAsString();
+		int id = Integer.valueOf(idString);
+		System.out.println("===addUser "+id); 
+		Assert.assertEquals(true, id > 0);
 		
 		result = mockMvc.perform(delete("/user/"+id))
 				.andExpect(status().isOk())   
                 .andReturn();
-		System.out.println("===removeUser "+result.getResponse().getContentAsString()); 
+		String resultString = result.getResponse().getContentAsString();
+		System.out.println("===removeUser "+resultString); 
+		Assert.assertEquals(true, Integer.valueOf(resultString) == 1);
 	}
 	
 	@Test
@@ -125,11 +142,13 @@ public class AppTests {
 				.andExpect(status().isOk())   
                 .andReturn();
 		
-		String id = result.getResponse().getContentAsString();
-		
-		System.out.println("===updateUser "+id);
+		String idString = result.getResponse().getContentAsString();
+		int id = Integer.valueOf(idString);
+		System.out.println("===updateUser "+id); 
+		Assert.assertEquals(true, id > 0);
 		
 		map = new HashMap<>();
+		map.put("id", id);
 		map.put("name", "testtesttest22222");
 		map.put("sex", "0");
 		map.put("age", "41");
@@ -137,6 +156,9 @@ public class AppTests {
 		result = mockMvc.perform(put("/user").contentType(MediaType.APPLICATION_JSON).content(JSONObject.toJSONString(map)))
 				.andExpect(status().isOk())   
                 .andReturn();
-		System.out.println("===updateUser "+result.getResponse().getContentAsString()); 
+		
+		String resultString = result.getResponse().getContentAsString();
+		System.out.println("===updateUser "+resultString); 
+		Assert.assertEquals(true, Integer.valueOf(resultString) == 1);
 	}
 }

@@ -51,15 +51,16 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/user/{id}")
-	public void removeUser(@PathVariable("id") Integer id) {
+	public int removeUser(@PathVariable("id") Integer id) {
 		logger.debug("===removeUser　"+id);
-		userService.removeUserById(id);
+		return userService.removeUserById(id);
 	}
 	
 	@PutMapping("/user")
-	public void updateUser(@RequestBody User user) {
-		logger.debug("===updateUsers　"+user.toString());
+	public int updateUser(@RequestBody User user) {
 		user.setDate(new Date());
-		userService.updateUser(user);
+		int result = userService.updateUser(user);
+		logger.debug("===updateUsers　"+user.toString() + " result "+result);
+		return result;
 	}
 }

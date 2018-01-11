@@ -27,7 +27,7 @@ public class UserServiceTest {
 		user.setAge(20);
 		user.setDate(new Date());
 		userService.addUser(user);
-		Assert.assertNotEquals(null, userService.getUserById(user.getId()));
+		Assert.assertNotNull(userService.getUserById(user.getId()));
 	}
 
 	@Test
@@ -38,7 +38,7 @@ public class UserServiceTest {
 		user.setAge(20);
 		user.setDate(new Date());
 		userService.addUser(user);
-		Assert.assertNotEquals(null, userService.getUsers());
+		Assert.assertNotNull(userService.getUsers());
 	}
 	
 	@Test
@@ -48,7 +48,7 @@ public class UserServiceTest {
 		user.setSex("1");
 		user.setAge(20);
 		user.setDate(new Date());
-		Assert.assertEquals(1,userService.addUser(user));
+		Assert.assertNotEquals(0,userService.addUser(user));
 	}
 	
 	@Test

@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService{
 	public int addUser(User user) {
 		int result = userDAO.insertUser(user);
 		logger.debug("===addUser "+result + " user "+user.toString());
-		return result;
+		return user.getId();
 	}
 
 	@Override
