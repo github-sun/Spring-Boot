@@ -1,5 +1,6 @@
 package org.sun.bootapp.ws.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -14,6 +15,13 @@ import org.sun.bootapp.ws.UserWebServices;
 public class UserWebServicesImpl implements UserWebServices{
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());  
+	
+
+	@Override
+	public User getUserById(int id) {
+		logger.debug("===getUsers id "+id);
+		return userService.getUserById(id);
+	}
 	
 	@Autowired
 	private UserService userService;
@@ -31,4 +39,16 @@ public class UserWebServicesImpl implements UserWebServices{
 		return user.getId();
 	}
 
+	@Override
+	public int removeUser(int id) {
+		logger.debug("===removeUser　id "+id);
+		return userService.removeUserById(id);
+	}
+
+	@Override
+	public int updateUser(User user) {
+		logger.debug("===updateUser　user "+user.toString());
+		user.setDate(new Date());
+		return userService.updateUser(user);
+	}
 }
